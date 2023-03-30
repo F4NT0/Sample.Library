@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using SampleAPI.Infrastructure;
 
 namespace SampleAPI
 {
@@ -25,6 +26,7 @@ namespace SampleAPI
             {
                 setup.SwaggerDoc("v1", new OpenApiInfo { Title = "SampleAPI", Version = "v1" });
             });
+            services.AddSingleton<IRepository,Repository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
